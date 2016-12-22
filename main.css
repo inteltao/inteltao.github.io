@@ -1,0 +1,33 @@
+html {
+    background-color:beige;
+    background-image: url(./pictures/background.png);
+    -webkit-font-smoothing: antialiased;
+    background-attachment: fixed
+}
+
+.card {
+    margin: 0 auto;
+    padding: 2em 2em 3em;
+    max-width: 1000px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.5em;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 0 0 8px; rgb(255, 255, 255);
+}
+
+.spacer30 { 
+    height: 30px; 
+    max-width: 1000px; 
+    font-size: 0; 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    display: block; 
+}
+
+.baka-head {
+    position:absolute;
+    top: 25px;
+    left: 1100px;
+}
