@@ -4,12 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+My name is Zui Tao, in Chinese it's written as 陶醉, you can also call me Steven. I am currently a graduate student at Information Networking Institute, Carnegie Mellon University. I am interested in cloud PaaS and other networking backend service. I want to build things that people really care. You may check out my CV online [here](https://inteltao.github.io/online-cv/)
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at
+This website is powered by Jekyll. You can find the source code for Jekyll at
 {% include icon-github.html username="jekyll" %} /
 [jekyll](https://github.com/jekyll/jekyll)
