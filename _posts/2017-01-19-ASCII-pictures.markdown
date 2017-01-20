@@ -4,7 +4,7 @@ title:  "When you are bored, try ASCII Pictures"
 comments: true
 date:   2017-01-19 22:23:32 -0500
 ---
-I don't know who invented the idea of ASCII pictures, but that guy must be bored enough to come up with this idea play with ASCII codes. But I have to admit, ASCII pictures are impressive and cool, or put in another way,
+I don't know who invented the idea of ASCII pictures, but that guy must be bored enough to come up with this idea play with ASCII codes. But I have to admit, ASCII pictures are impressive and cool, or put in another way
 
 ```
    ______   ____     ____     __
@@ -48,7 +48,7 @@ The first kind of ASCII of pictures are produced by hand, maybe by a group of su
  *                                                    * 
  ******************************************************/
  ```
- 
+
  ```
 /**
 *　　　　　　　　┏┓　　　┏┓+ +
