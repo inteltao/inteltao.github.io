@@ -73,7 +73,7 @@ The first kind of ASCII of pictures are produced by hand, maybe by a group of su
 ```
  You can have a try if you want, just make sure that your peers or boss also like it.
 
- ___
+ ***
 
  The second type of the ASCII picutures are actually fancy way to write characters. Now we have plenty of tools to do the conversion. `Sublime 3` has a well-defined package [ASCII Decorator](https://github.com/viisual/ASCII-Decorator) that does the job for you. If you type `A B C`, then it can become
 
