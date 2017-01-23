@@ -4,7 +4,8 @@ title:  "When you are bored, try ASCII Pictures"
 comments: true
 date:   2017-01-19 22:23:32 -0500
 ---
-I don't know who invented the idea of ASCII pictures, but that guy must be bored enough to come up with this idea play with ASCII codes. But I have to admit, ASCII pictures are impressive and cool, or put in another way,
+I don't know who invented the idea of ASCII pictures, but that guy must be bored enough to come up with this idea play with ASCII codes. But I have to admit, ASCII pictures are impressive and cool, or put in another way
+
 ```
    ______   ____     ____     __
   / ____/  / __ \   / __ \   / /
@@ -17,6 +18,7 @@ I don't know who invented the idea of ASCII pictures, but that guy must be bored
 ***
 
 The first kind of ASCII of pictures are produced by hand, maybe by a group of super smart programmers. Some programmers put the ASCII pictures as the header of the code. There exists a mysterious superstition that these pictures can make program bug-free. Here are some examples taken from [Github](https://gist.github.com/edokeh/7580064).
+
 ```
 /******************************************************
  *                       _oo0oo_                      *
@@ -46,6 +48,7 @@ The first kind of ASCII of pictures are produced by hand, maybe by a group of su
  *                                                    * 
  ******************************************************/
  ```
+ 
  ```
 /**
 *　　　　　　　　┏┓　　　┏┓+ +
@@ -71,6 +74,7 @@ The first kind of ASCII of pictures are produced by hand, maybe by a group of su
 *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
 */
 ```
+
  You can have a try if you want, just make sure that your peers or boss also like it.
 
  ***
