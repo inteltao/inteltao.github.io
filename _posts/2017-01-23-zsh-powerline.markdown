@@ -23,19 +23,25 @@ If you don't have Python or `pip`, please refer to [Download Python](https://www
 ## Install zsh
 ---
 There are two ways to install `zsh`, one is to get the native version using
+
 ```
 $ apt-get install zsh
 ```
+
 Then run `zsh` on your terminal will do the job. When you first run it, it will let you configure `.zshrc` or leave it blank. To make `zsh` your default shell prompt, run
+
 ```
 $ chsh -s /bin/zsh
 ```
+
 Notice that `sudo` is not needed in the command. If you add `sudo`, then it will change the default for the root user, not current user.
 
 The second approach is more recommanded, which uses a well-known project on Github called [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). To install it via this project, just run 
+
 ```
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
 There are several reaons why I prefer `oh-my-zsh`. First it already gives you a well-defined `~/.zshrc` . You can customize there for things like enabling auto-correction for commands, adding the timestamp for `history` command and so on. Second is that it has many beautiful themes that you can choose, the default is 
 
 {% highlight bash %}
