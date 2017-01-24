@@ -1,8 +1,11 @@
 ---
 layout: post
 title:  "Enhence your shell using zsh and much more"
+img: 61047262
+img_type: png
 comments: true
 date:   2017-01-23 16:23:32 -0500
+outline: This tutorial shows you the installation and some confgiurations of zsh, which I believe is a enhanced version of bash.
 ---
 This tutorial shows you the installation and some confgiurations of the `zsh`, which I believe is a enhanced version of `bash` and other small yet powerful plugins to make your cmd interface more beautiful and efficient to use. Here is a preview picture.
 ![alt text]({{ site.url }}/assets/images/zsh/preview.JPG "Preview picture")
