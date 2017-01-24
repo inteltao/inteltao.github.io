@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Enhence your shell using zsh and much more"
+title:  "Enhance your shell using zsh and much more"
 img: 61047262
 img_type: png
 comments: true
