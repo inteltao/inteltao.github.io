@@ -25,6 +25,7 @@ url: "https://inteltao.github.io" # the base hostname & protocol for your site, 
 twitter_username: inteltao7
 github_username:  inteltao
 # Build settings
+google_analytics: UA-90864314-1
 markdown: kramdown
 theme: minima
 disqus:
