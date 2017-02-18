@@ -1,0 +1,173 @@
+---
+layout: post
+title:  "My experience with Google Drive API: Installation and Authentication"
+img: 56068247
+img_type: jpg
+comments: true
+date:   2017-01-25 20:23:32 -0500
+outline: This article shows a very rough picture of the Google Drive API Installation and Authentication
+---
+Some time ago, I write a simple Java script with my friend [Heron Yang](http://www.heron.me/) that deals with Google Drive API, and I would like to write down my own experience of utilizing it. Note here all of my knowledge about Google Drive API comes from its [official documentation](https://developers.google.com/drive/v3/reference/). 
+
+Note here Google Drive API has various versions accros all major programming languages. Java is not the only one, and I believe is not the simplest. Here I just use Java as a example, after all the idea is the same.
+
+## Prerequisite
+---
+* Any OS that has Java compiler on it
+* Some Java IDE including IntelliJ or Eclipse
+* `Maven` Installed
+
+Here, I assume you that have a very basic sense of Java programming. If you don't know `maven` or don't have it installed, please refer [here](https://maven.apache.org/). If you are using IntelliJ then `maven` should be embedded in the IDE.
+
+## Install Google Drive API
+---
+
+The first thing is to install. On the website it provides two ways to install it, the first way is manually installation and the second way is through software project management and comprehension tool like `maven` or `gradle`. 
+
+Here I strongly recommended the second way because you will soon find out that the Google API package is HUGE and a bit messy. Manually install and configure will spend you a lot of time, trust me. To install it, first create `pom.xml` under your Java working directory, then include the following lines.
+
+{% highlight html %}
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>{Your groupID}</groupId>
+	<artifactId>{Your artifactID}</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.20.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-drive</artifactId>
+			<version>v3-rev52-1.22.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-java6</artifactId>
+			<version>1.22.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>1.22.0</version>
+		</dependency>
+	</dependencies>
+</project>
+{% endhighlight %}
+
+## Obtain Credentials through OAuth2.0
+---
+
+When you want to use Drive API to do something, you first need to obtain certain credentials from Google so that you have the right to access someone's Google Drive. 
+
+The first credential you need is the credentials for your application, or your java script, for this case. Google assign quotas to each application so that you can't overuse the API. The steps of it can be found [here](https://developers.google.com/drive/v3/web/about-auth#OAuth2Authorizing). I won't show details here because all you need to do is to click here and there on [Google API Console](https://console.developers.google.com/).
+
+The second credentail you need is the one specifically for the account access. In other words, you need it to access certain Drive account. For current version (v3), Google has deprecated using account name and possword to loging because it's not secure. Therefore, we will use OAuth2.0 to do the job. The principle is that instead of sending the real password, instead we send tokens. Google will not save the passwords but just use the token to authorize the user. A much more detailed explanation of it can be found at [RFC6749](https://tools.ietf.org/html/rfc6749).
+
+The code below is the portion of the [example code](https://developers.google.com/drive/v3/web/quickstart/java) the Google provides to do the authorization. I won't show all of them because it's too long and I will point out things you can customize.
+
+{% highlight java %}
+/** First import a lot of packages **/
+public class Drive_API {
+    /** Application name. */
+    private static final String APPLICATION_NAME =
+        "Drive API Java Quickstart";
+
+    /** Directory to store user credentials for this application. */
+    private static final java.io.File DATA_STORE_DIR = new java.io.File(
+        System.getProperty("user.home"), ".credentials/drive-java-quickstart");
+
+    /** Global instance of the {@link FileDataStoreFactory}. */
+    private static FileDataStoreFactory DATA_STORE_FACTORY;
+
+    /** Global instance of the JSON factory. */
+    private static final JsonFactory JSON_FACTORY =
+        JacksonFactory.getDefaultInstance();
+
+    /** Global instance of the HTTP transport. */
+    private static HttpTransport HTTP_TRANSPORT;
+
+    /** Global instance of the scopes required by this quickstart.
+     *
+     * If modifying these scopes, delete your previously saved credentials
+     * at ~/.credentials/drive-java-quickstart
+     */
+    private static final List<String> SCOPES =
+        Arrays.asList(DriveScopes.DRIVE_METADATA_READONLY);
+
+    static {
+        try {
+            HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+            DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
+        } catch (Throwable t) {
+            t.printStackTrace();
+            System.exit(1);
+        }
+    }
+
+    /**
+     * Creates an authorized Credential object.
+     * @return an authorized Credential object.
+     * @throws IOException
+     */
+    public static Credential authorize() throws IOException {
+        // Load client secrets.
+        InputStream in =
+            Quickstart.class.getResourceAsStream("/client_secret.json");
+        GoogleClientSecrets clientSecrets =
+            GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+
+        // Build flow and trigger user authorization request.
+        GoogleAuthorizationCodeFlow flow =
+                new GoogleAuthorizationCodeFlow.Builder(
+                        HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
+                .setDataStoreFactory(DATA_STORE_FACTORY)
+                .setAccessType("offline")
+                .build();
+        Credential credential = new AuthorizationCodeInstalledApp(
+            flow, new LocalServerReceiver()).authorize("user");
+        System.out.println(
+                "Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
+        return credential;
+    }
+
+    /**
+     * Build and return an authorized Drive client service.
+     * @return an authorized Drive client service
+     * @throws IOException
+     */
+    public static Drive getDriveService() throws IOException {
+        Credential credential = authorize();
+        return new Drive.Builder(
+                HTTP_TRANSPORT, JSON_FACTORY, credential)
+                .setApplicationName(APPLICATION_NAME)
+                .build();
+    }
+    /** then you can write your main functions here **/
+}
+{% endhighlight %}
+
+Here I think the most important one is
+
+{% highlight java %}
+Credential credential = new AuthorizationCodeInstalledApp(
+    flow, new LocalServerReceiver()).authorize("user");
+{% endhighlight %}
+
+Where the user will enter the credentials of thier Google account and get the authorization. This method will open a port on the local machine and listen for the auth token. Once the user completes authorization it will send the token to that specified port. If rather you want to get the token manually and insert, you can try the following code,
+
+{% highlight java %}
+LocalServerReceiver receiver = new LocalServerReceiver();
+String redirectURL = receiver.getRedirectUri();
+AuthorizationCodeRequestUrl authorizedURL = flow.newAuthorizationUrl();
+authorizedURL.setRedirectUri(redirectURL);
+String url=authorizedURL.build();
+String code = receiver.waitForCode();
+TokenResponse response = flow.newTokenRequest(code).setRedirectUri(redirectURL).execute();
+Credential credential = flow.createAndStoreCredential(response,"user");
+{% endhighlight %}
+
+
+Also here `SCOPES` variable defines the right of the app, whether just read the drive content or can modifiy them.
