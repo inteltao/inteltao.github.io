@@ -18,6 +18,12 @@
           {% if my_page.title == 'About' %}
           <a class="page-link" href="https://inteltao.github.io/online-cv/">{{ my_page.title | escape }}</a>
           {% endif %}
+          {% if my_page.title == 'ACG' %}
+          <a class="page-link" href="{{ "/acg" | relative_url}}">{{ my_page.title | escape }}</a>
+          {% endif %}
+          {% if my_page.title == 'Technical' %}
+          <a class="page-link" href="{{ "/blog" | relative_url}}">{{ my_page.title | escape }}</a>
+          {% endif %}
         {% endfor %}
       </div>
     </nav>

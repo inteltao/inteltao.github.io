@@ -4,6 +4,7 @@ title:  "About Me"
 img: 61048675
 img_type: jpg
 comments: true
+tag: non-ACG
 date:   2017-01-19 17:35:32 -0500
 outline: That's ME!
 ---

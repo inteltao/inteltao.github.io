@@ -1,15 +1,14 @@
 ---
-layout: default
+layout: page
+title: ACG
+permalink: /acg
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">All Posts</h1>
-  
-  {{ content }}
+<div class="home">  
 
   <ul class="post-list">
     {% for post in site.posts %}
+    {% if post.tag == 'ACG' %}
       <li>
       <div class="card">
         <h2>
@@ -24,6 +23,7 @@ layout: default
         <p> {{ post.outline }} </p>
       </div>
       </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>

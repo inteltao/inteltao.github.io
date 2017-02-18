@@ -4,6 +4,7 @@ title:  "My experience with Google Drive API: Installation and Authentication"
 img: 56068247
 img_type: jpg
 comments: true
+tag: non-ACG
 date:   2017-01-25 20:23:32 -0500
 outline: This article shows a very rough picture of the Google Drive API Installation and Authentication
 ---

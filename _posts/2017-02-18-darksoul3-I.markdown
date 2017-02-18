@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "A beginner pyromancer Guide of Dark Souls III (updating)"
+img: 60941290
+img_type: jpg
+comments: true
+tag: ACG
+date:   2017-02-17 17:35:32 -0500
+outline: Let's play Dark Souls III in an easier way.
+---
+I am kind of free recently so I play [Dark Souls III](https://en.wikipedia.org/wiki/Dark_Souls_III) again on my PS4. When played this game for the first time, just like many people suggested, I choose Knight class. Knight it very easy to control if you are a beginner, but if you just use weapons to deal massive physical damage, you would lose a lot fun as a mage in Dark Souls. So this time let's try a different way, how about pyromancer?
+
+## Pros and Cons of playing first as a pyromancer
+---
+### Pros
+
+* Literally EXPLOSIVE Damage: In `Dark Souls III`, many, many foes are weak on fire, and that's what pyromancer best at.
+* Make it much simpler for dealing with many bosses: This is a advantage of the ranged socerires, many bosses are harmless when you are far from it but you can cause damage to them.
+* Invisible is COOOOOOL, masking the noise is COOOOLER. Yes, you can play this game as Assassin's Creed.  
+
+### Cons
+* You will be extremely likely to die at the first part of the game because you have little HP and little guard.
+* The difficulties to control the character is much higher simply because you have to not only take care of your HP, stamina, but also your FP.
+
+(To be continued......)

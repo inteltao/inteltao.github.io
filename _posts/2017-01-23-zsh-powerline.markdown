@@ -4,6 +4,7 @@ title:  "Enhance your shell using zsh and much more"
 img: 61047262
 img_type: png
 comments: true
+tag: non-ACG
 date:   2017-01-23 16:23:32 -0500
 outline: This tutorial shows you the installation and some confgiurations of zsh, which I believe is a enhanced version of bash.
 ---

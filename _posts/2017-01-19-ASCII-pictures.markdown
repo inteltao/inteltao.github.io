@@ -4,6 +4,7 @@ title:  "When you are bored, try ASCII Pictures"
 img: 61035957
 img_type: jpg
 comments: true
+tag: non-ACG
 date:   2017-01-19 22:23:32 -0500
 outline: I don't know who invented the idea of ASCII pictures, but that guy must be bored enough to come up with this idea play with ASCII codes.
 ---
