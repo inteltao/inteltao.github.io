@@ -1,17 +1,19 @@
 ---
 layout: post
-title:  "A beginner pyromancer Guide of Dark Souls III (updating)"
+title:  "A beginner pyromancer Guide of Dark Souls III (updating to Spells)"
 img: 60941290
 img_type: jpg
 comments: true
 tag: ACG
-date:   2017-02-17 17:35:32 -0500
+date:   2017-02-28 17:35:32 -0500
 outline: Let's play Dark Souls III in an easier way.
 ---
 I am kind of free recently so I play [Dark Souls III](https://en.wikipedia.org/wiki/Dark_Souls_III) again on my PS4. When played this game for the first time, just like many people suggested, I choose Knight class. Knight it very easy to control if you are a beginner, but if you just use weapons to deal massive physical damage, you would lose a lot fun as a mage in Dark Souls. So this time let's try a different way, how about pyromancer?
 
 ## Pros and Cons of playing first as a pyromancer
+
 ---
+
 ### Pros
 
 * Literally EXPLOSIVE Damage: In `Dark Souls III`, many, many foes are weak on fire, and that's what pyromancer best at.
@@ -21,5 +23,49 @@ I am kind of free recently so I play [Dark Souls III](https://en.wikipedia.org/w
 ### Cons
 * You will be extremely likely to die at the first part of the game because you have little HP and little guard.
 * The difficulties to control the character is much higher simply because you have to not only take care of your HP, stamina, but also your FP.
+* You will get into trouble when you face particular bosses that can escape your spell attack or the resistence of fire is extremely high. During these cases, emmm, call a friend to help is the best way.
+
+## Skill Points
+
+---
+
+* **Vigor**: Higher the vigor, more the HP. Important when you are not so distinguished from knights. I level it up to about 20, which can make you survive after hitten by most of the Boss's critical attakcs.
+* **Attunemenet**: Affects your FP and your atune slots. Level it to 18 so that you can get three slots. more slots is not so helpful in my experience.
+* **Endurance**: Unlike knights, endurance is not so important for pyromancer, but still worth leveling it, the priority is not so high.
+* **Vitality**: Not important.
+* **Strength**: Not important if you are a pure mage.
+* **Dexterity**: Not important if you are a pure mage.
+* **Intelligence**: Crucial because it can boost up your spell damage and some spells need minimum intelligence level to cast. However, it may not be significant at the begining. Still you should level it to at least 20 in the early stage.
+* **Faith**: Same as intelligence. Although we believe in pyromancies, faith is as important as intelligence.
+* **Luck**: Not important at all.
+
+### Order of leveling up: 
+* Early Stagge: Vigor(up tp 20) > attunement(up to 18) >= Intelligence/Faith (up tp 20) > endurance > others
+* After early stage: Intelligence/Faith > Vigor > endurance > attunement > others
+
+Note here we didn't put any single point to strength or dexterity because if you start as pyromancer, the initial strength and dexterity is enough for you, I will talk it in more detail in next sections.
+
+## Spells
+
+---
+
+There are many socrerires, pyromancies and miracles in `Dark Souls III` but we just cast a few of them very frequently. I will introduce my understanding of some of the spells that are handy. You can also create your own faviourite spell lists. I will just introduce the spells in this section and write about how to get them in the next sections.
+
+### Pyromancy
+
+* `Fireball`, `Fire Orb`, `Greate Chaos Fire Orb`: I put these together because they sort of in the same serise. They are probably the spells you will use most often. If you start as pyromancer, then you will automatically get `Fireball`. Just like I mentioned most enemies are weak on fire so these pyromancies can deal massive damage.
+* `Chaos Bed Vestiges`: You may probably use this often because it's a small AOE. The damage is also very high but it costs a lot of FP. 
+* `Profaned Flame`: Visually very fancy pyromancy and powerful too. The problem is that often you can't get the right distance for it to deal the maximum damage.
+* `Black Fire oOrb`: Very helpful if your enemy has strong resistence to fire.
+
+### Sorcery
+
+* `Hidden Body`: Extremely important. With this and masking your voice most of the enemies will be completely unaware of you. Even if you attack, they don't know your position so they can't hurt you.
+* `Spook`: Masks noises of the caster and prevents fall damage. Very helpful if you don't yet have `Silvercat Ring`.
+* `Soul Arrow`: Again if your enemy has high resistence to fire, this helps a lot.
+
+### Miracle
+
+* `Dorhys' Gnawing`. Very powerful spell. It has extremely high blood damage and very effective to certain types of enemies.
 
 (To be continued......)
