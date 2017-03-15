@@ -1,0 +1,161 @@
+---
+layout: post
+title:  "Leetcode Memo: LFU caches and more "
+img: 61745914
+img_type: jpg
+comments: true
+tag: non-ACG
+date:   2017-03-14 10:35:32 -0500
+outline: Just Leetcode Memo on 435, 482, 460 
+---
+
+Forget Me Not.
+---
+## 435 Non-overlapping Intervals
+---
+>Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Using greedy algorithm, we can solve it. First sort the interval in terms of the starting point, then check if it can be removed according to different situations.
+
+{% highlight java %}
+public class Solution {
+    class myComparator implements Comparator<Interval> {
+        public int compare(Interval a, Interval b) {
+            return a.start - b.start;
+        }
+    }
+    public int eraseOverlapIntervals(Interval[] intervals) {
+        if (intervals.length == 0) {
+            return 0;
+        }
+        Arrays.sort(intervals, new myComparator());
+        int end = intervals[0].end, prev = 0, count = 0;
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[prev].end > intervals[i].start) {
+                if (intervals[prev].end > intervals[i].end) {
+                    prev = i;
+                }
+                count++;
+            } else {
+                prev = i;
+            }
+        }
+        return count;
+    }
+}
+{% endhighlight %}
+
+### Extension: How to know if an array of intervals are overlapped?
+---
+The best solution might be just in time complexity O(n logn) if the interval is continuous. 
+
+However, if the interval is discrete then there is a cleverer solution reducing the complexity to O(n), which needs to set up a certain range ([0,L]) and use a array to record the number of times the certain number apppears in the interval.
+
+## 482 License Key Formatting
+---
+>Now you are given a string S, which represents a software license key which we would like to format. The string S is composed of alphanumerical characters and dashes. The dashes split the alphanumerical characters within the string into groups. (i.e. if there are M dashes, the string is split into M+1 groups). The dashes in the given string are possibly misplaced.
+>
+>We want each group of characters to be of length K (except for possibly the first group, which could be shorter, but still must contain at least one character). To satisfy this requirement, we will reinsert dashes. Additionally, all the lower case letters in the string must be converted to upper case.
+
+Using `String` in Java may cause `2n` time complexity, better using `SrtingBuilder`, and go through the original string in the reverse order, which takes just `n` time complexity.
+
+{% highlight java %}
+public class Solution {
+    public String licenseKeyFormatting(String S, int K) {
+        StringBuilder sb = new StringBuilder();
+        S = S.toUpperCase();
+        int len = 0;
+        int k = K;
+        for (int i=S.length()-1;i>=0;i--)
+        {
+            if (S.charAt(i)!='-')
+            {
+                sb.append(S.charAt(i));
+                len++;
+            }
+            if (len==k) 
+            {
+                sb.append('-');
+                k += K;
+            }
+        }
+        if (sb.length()==0) return result;
+        if (sb.charAt(sb.length()-1) == '-')
+            sb.deleteCharAt(sb.length()-1);
+        return (sb.reverse().toString());
+    }
+}
+{% endhighlight %}
+
+## 460 LFU Cache
+---
+>Design and implement a data structure for Least Frequently Used (LFU) cache. It should support the following operations: get and put.
+
+To reach O(1) time complexity, we need one `HashMap<Integer, Integer>` to maintain the (key,value) pair, one `HashMap<Integer, Integer>` to maintain the frequency and one `LinkedList<LinkedList<Integer>>` to maintain the order of frequency. All the keys that have the same frequency will be in the same position of the Linked list. In addition, we use `int LFUPosition` to mark the key of the LFU pair.
+
+
+{% highlight java %}
+public class LFUCache {
+    int cap = 0;
+    int size = 0;
+    HashMap<Integer, Integer> val = new HashMap<Integer,Integer>();
+    HashMap<Integer, Integer> freq = new HashMap<Integer,Integer>();
+    LinkedList<LinkedList<Integer>> ll = new LinkedList<LinkedList<Integer>>();
+    int LFUPosition = 0;
+    public LFUCache(int capacity) {
+        cap = capacity;
+        LinkedList<Integer> sameFrequency = new LinkedList<Integer>();
+        ll.add(sameFrequency);
+    }
+    
+    void updateList(int key) {
+        ll.get(freq.get(key)-1).remove((Integer)key);
+        if (ll.get(LFUPosition).isEmpty()) LFUPosition+=1;
+        freq.put(key,freq.get(key)+1);
+        if (freq.get(key)>ll.size())
+        {
+            LinkedList<Integer> sameFrequency = new LinkedList<Integer>();
+            sameFrequency.add(key);
+            ll.add(sameFrequency);
+        }
+        else
+        {
+            ll.get(freq.get(key)-1).add(key);
+        }        
+    }
+    public int get(int key) {
+        if (!val.containsKey(key)) {return -1;}
+        int result = val.get(key);
+        if (val.containsKey(key))
+        {
+           updateList(key);
+        }        
+        return result;
+    }
+    
+    public void put(int key, int value) {
+        if (cap<=0) return;
+        if (!val.containsKey(key))
+        {
+            size++;
+            if (size>cap)
+            {
+                int tmp = ll.get(LFUPosition).get(0);
+                ll.get(LFUPosition).remove(0);
+                freq.remove(tmp);
+                val.remove(tmp);
+                size--;
+            }
+            val.put(key,value);
+            freq.put(key,1);
+            ll.get(0).add(key);
+            if (LFUPosition > 0) LFUPosition = 0;
+        }
+        else
+        {
+            updateList(key);
+        }
+    }
+}
+{% endhighlight %}
+
