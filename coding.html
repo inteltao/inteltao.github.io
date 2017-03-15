@@ -1,0 +1,29 @@
+---
+layout: page
+title: Coding
+permalink: /coding
+---
+
+<div class="home">  
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+    {% if post.tag == 'coding' %}
+      <li>
+      <div class="card">
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <p></p>
+        <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id={{ post.img }}">
+          <img src="{{ site.url }}/assets/images/title/{{ post.img }}.{{ post.img_type }}">
+        </a>
+        <p></p>
+        <p> {{ post.outline }} </p>
+      </div>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

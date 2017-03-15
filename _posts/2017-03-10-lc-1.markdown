@@ -4,7 +4,7 @@ title:  "Leetcode Memo: LFU caches and more "
 img: 61745914
 img_type: jpg
 comments: true
-tag: non-ACG
+tag: coding
 date:   2017-03-14 10:35:32 -0500
 outline: Just Leetcode Memo on 435, 482, 460 
 ---

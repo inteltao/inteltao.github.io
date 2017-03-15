@@ -24,6 +24,9 @@
           {% if my_page.title == 'Technical' %}
           <a class="page-link" href="{{ "/blog" | relative_url}}">{{ my_page.title | escape }}</a>
           {% endif %}
+          {% if my_page.title == 'Coding' %}
+          <a class="page-link" href="{{ "/coding" | relative_url}}">{{ my_page.title | escape }}</a>
+          {% endif %}
         {% endfor %}
       </div>
     </nav>
