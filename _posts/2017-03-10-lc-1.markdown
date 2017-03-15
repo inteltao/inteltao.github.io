@@ -159,3 +159,25 @@ public class LFUCache {
 }
 {% endhighlight %}
 
+## 136 Single Number
+>Given an array of integers, every element appears twice except for one. Find that single one.
+
+Solution 1: Use a Set. The first time you meet this number, put it into the set, second time remove it from the set. Finally the only element in the set is the desiered one.
+
+{% highlight java %}
+public class Solution {
+    public int singleNumber(int[] nums) {
+        Set<Integer> s = new HashSet<Integer>();
+        for (int i=0;i<nums.length;i++)
+        {
+            if (!s.contains(nums[i]))
+                s.add(nums[i]);
+            else s.remove((Integer)nums[i]);
+        }
+        return s.iterator().next();
+    }
+}
+{% endhighlight %}
+
+Solution 2: Using XOR Operation.
+
