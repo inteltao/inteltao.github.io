@@ -160,6 +160,7 @@ public class LFUCache {
 {% endhighlight %}
 
 ## 136 Single Number
+---
 >Given an array of integers, every element appears twice except for one. Find that single one.
 
 Solution 1: Use a Set. The first time you meet this number, put it into the set, second time remove it from the set. Finally the only element in the set is the desiered one.
