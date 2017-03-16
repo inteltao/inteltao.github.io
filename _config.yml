@@ -27,7 +27,10 @@ github_username:  inteltao
 # Build settings
 google_analytics: UA-90864314-1
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
 theme: minima
+
 disqus:
     shortname: inteltao7
 gems:
