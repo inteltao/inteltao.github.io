@@ -1,0 +1,89 @@
+---
+layout: post
+title:  "Leetcode Memo: Binary Tree Vertical Order Traversal and more"
+img: 61897534
+img_type: jpg
+comments: true
+tag: coding
+date:   2017-03-15 10:35:32 -0500
+outline: Just Leetcode Memo on 203, 441, 453, 314
+---
+
+Forget Me Not.
+---
+### 203. Remove Linked List Elements
+---
+>Remove all elements from a linked list of integers that have value val.
+
+A good solution is to use a dummy node and use double pointers to go through the linked list.
+
+### 441. Arranging Coins
+---
+>You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.
+
+You can use the mathematical formula,
+$$x\leq\frac{-1+\sqrt{8n}}{2}$$
+to get the correct number, but be carefule about the range of the different number types. The input is integer but we have to use double type to hold intermediate results.
+
+### 453. Minimum Moves to Equal Array Elements
+---
+>Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+
+The key idea is to understand that incrementing 1 to (n-1) elements is the same as subtracting 1 from one element. So the total number is `sum(array[])-min(array[])*array.length`
+
+### 314. Binary Tree Vertical Order Traversal
+---
+>Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column). If two nodes are in the same row and column, the order should be from left to right.
+
+Using BFS and a queue to store the nodes. if it's a left child, then `pos=parentPos-1`, if it's a right child, then `pos=parentPos+1`. In the end all the nodes that have the same `pos` will be put into the same list. I use `hashmap` to record each node's `pos`. But there must be a better solution.
+
+{% highlight java %}
+public class Solution {
+    int mostLeft = 0;
+    int mostRight = 0;
+    int height = 0;
+    List<List<Integer>> result = new ArrayList<List<Integer>>();
+    HashMap<TreeNode, Integer> nodePos = new HashMap<TreeNode, Integer>();
+    List<TreeNode> nodeList = new ArrayList<TreeNode>();
+    public void helper(List<TreeNode> nodeList) {
+        if (nodeList.isEmpty()) return;
+        TreeNode node = nodeList.remove(0);
+        int pos = nodePos.get(node);
+        if (mostLeft > pos) mostLeft = pos;
+        if (mostRight < pos) mostRight = pos;
+        if (!index.containsKey(pos)) 
+        {
+            List<Integer> ls = new ArrayList<Integer>();
+            ls.add(node.val);
+            index.put(pos, ls);
+        }
+        else
+        {
+            index.get(pos).add(node.val);
+        }
+        if (node.left!=null) 
+        {
+            nodePos.put(node.left, pos-1);
+            nodeList.add(node.left);
+        }
+        if (node.right!=null) 
+        {
+            nodePos.put(node.right, pos+1);
+            nodeList.add(node.right);
+        }
+        helper(nodeList);
+    }
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        if (root==null) return result;
+        nodeList.add(root);
+        nodePos.put(root, 0);
+        helper(nodeList);
+        for (int i=mostLeft;i<=mostRight;i++)
+        {
+            if (index.containsKey(i))
+                result.add(index.get(i));
+        }
+        return result;
+    }
+}
+{% endhighlight %}
